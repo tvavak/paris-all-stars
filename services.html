@@ -1,0 +1,754 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu All Star |Pizzas, Burgers, Crêpes et plus... </title>
+  <meta name="description" content="Découvrez notre menu varié avec des options de poulet frit, pizzas, burgers, wraps, et plus encore. Commandez en ligne pour une livraison rapide à domicile.">
+  <link rel="stylesheet" href="style2.css">
+  <link rel="icon" type="image/png" href="allstarfood logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+      /* Include your CSS styles here */
+      .filter-btn {
+        background-color: #000000;
+        color: #f9f5f0;
+        border: none;
+        padding: 10px 16px; /* Increased padding for better touch targets */
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        font-size: 1em;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Added subtle shadow */
+        
+      }
+
+      .filter-btn:hover {
+        background-color: #333;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+      }
+
+      .filter-dropdown {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 5px;
+        overflow: hidden;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: fadeIn 0.3s ease-in-out; /* Fade-in animation */
+      }
+
+      .filter-dropdown button {
+        color: #000000;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .filter-dropdown button:hover {
+        background-color: #f1f1f1;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Additional CSS for menu items */
+      .menu-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        aspect-ratio: 1 / 1;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .menu-item:hover {
+        transform: scale(1.05);
+      }
+
+      .menu-item img {
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .menu-item-title {
+        color: #fff;
+        transition: opacity 0.3s ease; /* Ajout de transition pour l'effet de disparition */
+      }
+
+      .menu-item:hover img {
+        transform: scale(1.1);
+        animation: hoverEffect 0.5s ease-in-out;
+      }
+
+      .menu-item-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 10px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .menu-item:hover .menu-item-title {
+        opacity: 0; /* Masquer le titre lors du survol */
+      }
+
+      .menu-item-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      .menu-item-description {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+  </style>
+</head>
+<body>
+    <header class="header">
+      <div class="logo-container">
+        <img src="allstarfood logo.png" alt="Logo du restaurant" class="logo-image">
+          </div> 
+          <nav class="nav">
+            <a href="index.html">Accueil</a>
+          <a href="services.html">Menu</a>
+          <a href="apropos.html">À propos</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <button id="scrollTopBtn" title="Remonter en haut">↑</button>
+
+</head>
+<body>
+    <div class="menu-container">
+        <div class="menu-header">
+          <h1>Notre Menu</h1>
+        </div>
+        <div class="menu-categories">
+          <button class="category-button active">Tous</button>
+          <button class="category-button">Pizzas</button>
+          <button class="category-button">Burgers</button>
+          <button class="category-button">Crêpes Salées</button>
+          <button class="category-button">Crêpes Sucrées</button>
+        </div>
+
+        <div class="menu-items">
+          <div class="menu-item">
+            <img src="philadelphia.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Philadelphia</h3>
+              <p>Tomate, fromage, origan</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="Pizza toronnto.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Toronto</h3>
+              <p>Tomate, fromage, dinde, oeuf</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <img src="Pizza Atlanta.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Atlanta</h3>
+              <p>Tomate, fromage, dinde, champignon</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <img src="Boston.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Boston</h3>
+              <p>Tomate, fromage, Merguez, olives, poivrons</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="New york.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza New york</h3>
+              <p>Tomate, fromage, chorizo, dinde, oeuf</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="pizza chicago.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Chicago</h3>
+              <p>Tomate, fromage, fruits de mer, olives</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="Clevland.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Cleveland</h3>
+              <p>Tomate, fromage, champignon, P. de terre, tomates frîches, olives, poivrons</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="pizza detroit.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Detroit</h3>
+              <p>Tomate, fromage, Poulet Tikka, olives</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+      
+          <div class="menu-item">
+            <img src="Indiana.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Indiana</h3>
+              <p>Tomate, fromage, thon, poivrons, olives, oeuf</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="pizza milwaukee.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Milwaukee</h3>
+              <p>Tomate, fromage, viande hachée, oeuf, champignon</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="charlotte.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Charlotte</h3>
+              <p>Tomate, fromage, chèvre, gorgonzola, reblochons, olives</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="pizza miami.jpeg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Miami</h3>
+              <p>Tomate, fromage, anchois, câpres, olives</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="pizza orlando.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Orlando</h3>
+              <p>Tomate, fromage, Merguez, viande hachée, poivrons</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="pizza washington.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Washington</h3>
+              <p>Tomate, fromage, vainde hachée, boursin, oignons</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <img src="new jersey.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza New Jersey</h3>
+              <p>Tomate, fromage, Poulet Tikka, P. de terre, poivrons</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="dallas.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Dallas</h3>
+              <p>Crème fraiche, fromage, Poulet Tikka, boursin</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="pizza memphis.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Memphis</h3>
+              <p>Crème fraiche, fromage, kebab, olives, poivrons</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="denver.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Denver</h3>
+              <p>Crème fraiche, fromage, Poulet fumé, P. de terre</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="Pizza minnesota.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Minnesota</h3>
+              <p>Crème fraiche, fromage, Saumon Fumé, citron, olives</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="portland.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Portland</h3>
+              <p>Crème fraiche, fromage, Chorizo, Poulet fumé</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="new orleans.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza New Orleans</h3>
+              <p>Crème fraiche, fromage, Merguez, Viande hachées, P. de terre</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="pizza san antonio.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza San Antonio</h3>
+              <p>Crème fraiche, fromage, Lardons, P. de terre, oignons, reblochon</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="pizza oklahoma.webp" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Oklahoma</h3>
+              <p>Sauce BBQ, fromage, jambons, Champigons</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="pizza los angeles.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Los Angeles</h3>
+              <p>Sauce samouraï, fromage, Poulet Tikka, P. de terre, oignons</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="pizza phoenix.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Phoenix</h3>
+              <p>Sauce BBQ, fromage, Viande hachée, poivrons, oignons</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="Pizza Sacramento.jpeg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Sacramento</h3>
+              <p>Sauce Chili thai, fromage, tikka, poivrons, tabasco, pepperoni</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="Utah.jpg" alt="Pizza Margherita" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Pizza Utah</h3>
+              <p>Sauce BBQ, fromage, Viande hachée, chorizo, cheddar</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="burger sans fromage.jpg" alt="Classic Burger" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Menu Gluch Player Burger</h3>
+              <p>1 steaks, tomate, salade, sauce burger</p>
+              <p>Menus servis avec frites et canette 33cl</p>
+              <div class="menu-item-price">7.00 €</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="1 Steak.jpg" alt="Classic Burger" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Menu Time out Burger</h3>
+              <p>1 steaks, 1 fromages, salade, tomate, sauce burger</p>
+              <p>Menus servis avec frites et canette 33cl</p>
+              <div class="menu-item-price">7.50 €</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="2 steak.jpg" alt="Classic Burger" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Menu Big Four Burger</h3>
+              <p>2 steaks, 2 fromages, salade, tomate, sauce burger</p>
+              <p>Menus servis avec frites et canette 33cl</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="Steak galette.jpg" alt="Classic Burger" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Menu Catch & Shoot Burger</h3>
+              <p>1 steaks, galette de pomme de terre, fromages, salade, sauce burger</p>
+              <p>Menus servis avec frites et canette 33cl</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="burger tenders.jpg" alt="Classic Burger" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Menu in your Face Burger</h3>
+              <p>Tenders, fromages, salade, sauce burger</p>
+              <p>Menus servis avec frites et canette 33cl</p>
+              <div class="menu-item-price">8.00 €</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="burger bacon.jpg" alt="Classic Burger" width="280" height="200">
+            <div class="menu-item-info">
+              <h3>Menu Greatest Burger</h3>
+              <p>1 steak, bacons, formage, sauce mayonaise</p>
+              <p>Menus servis avec frites et canette 33cl</p>
+              <div class="menu-item-price">7.20 €</div>
+            </div>
+          </div>
+
+            <div class="menu-item">
+              <img src="crepes-au-fromage.jpeg" alt="Crêpes" width="280" height="200">
+              <div class="menu-item-info">
+                <h3>Crêpes Salées : Ewing</h3>
+                <p>Fromage rapé</p>
+                <div class="menu-item-price">4.50 €</div>
+              </div>
+            </div>
+
+              <div class="menu-item">
+                <img src="crepe-fromage oeuf.jpg" alt="Crêpes" width="280" height="200">
+                <div class="menu-item-info">
+                  <h3>Crêpes Salées : Drexler</h3>
+                  <p>Fromage, oeuf</p>
+                  <div class="menu-item-price">4.50 €</div>
+                </div>
+              </div>
+
+                <div class="menu-item">
+                  <img src="crepe jambon.jpg"Crêpes" width="280" height="200">
+                  <div class="menu-item-info">
+                    <h3>Crêpes Salées : Abdul Jabbar</h3>
+                    <p>Fromage, jambon</p>
+                    <div class="menu-item-price">5.50 €</div>
+                  </div>
+                </div>
+
+                  <div class="menu-item">
+                    <img src="crepe jambon fromage oeuf.jpg" alt="Crêpes" width="280" height="200">
+                    <div class="menu-item-info">
+                      <h3>Crêpes Salées : Barkley</h3>
+                      <p>Fromage, jambon, oeuf</p>
+                      <div class="menu-item-price">6.00 €</div>
+                    </div>
+                  </div>
+
+                    <div class="menu-item">
+                      <img src="crepe poulet.jpg" alt="Crêpes" width="280" height="200">
+                      <div class="menu-item-info">
+                        <h3>Crêpes Salées : Jordan</h3>
+                        <p>Fromage, Poulet fumé</p>
+                        <div class="menu-item-price">6.00 €</div>
+                      </div>
+                    </div>
+
+                      <div class="menu-item">
+                        <img src="crepe lardon.jpg" alt="Crêpes" width="280" height="200">
+                        <div class="menu-item-info">
+                          <h3>Crêpes Salées : Magic</h3>
+                          <p>Fromage, Poulet fumé, oeuf</p>
+                          <div class="menu-item-price">6.50 €</div>
+                        </div>
+                      </div>
+
+                        <div class="menu-item">
+                          <img src="crepe tikka.jpg" alt="Crêpes" width="280" height="200">
+                          <div class="menu-item-info">
+                            <h3>Crêpes Salées : Chamberlain</h3>
+                            <p>Fromage, Chiken Tikka</p>
+                            <div class="menu-item-price">6.50 €</div>
+                          </div>
+                        </div>
+
+                          <div class="menu-item">
+                            <img src="kebab crepe.jpg" alt="Crêpes" width="280" height="200">
+                            <div class="menu-item-info">
+                              <h3>Crêpes Salées : Robinson</h3>
+                              <p>Fromage, kebab</p>
+                              <div class="menu-item-price">6.50 €</div>
+                            </div>
+                          </div>
+
+                            <div class="menu-item">
+                              <img src="malone.webp" alt="Crêpes" width="280" height="200">
+                              <div class="menu-item-info">
+                                <h3>Crêpes Salées : Malone</h3>
+                                <p>Fromage, salade, poivrons, champignons, P. de terre, oignons, olives, oeuf</p>
+                                <div class="menu-item-price">6.50 €</div>
+                              </div>
+                            </div>
+
+                              <div class="menu-item">
+                                <img src="4 fromage crepe.jpg" alt="Crêpes" width="280" height="200">
+                                <div class="menu-item-info">
+                                  <h3>Crêpes Salées : Lady Bird</h3>
+                                  <p>Chèvre, mozza, reblochon, emmental</p>
+                                  <div class="menu-item-price">6.50 €</div>
+                                </div>
+                              </div>
+
+                                <div class="menu-item">
+                                  <img src="crepe thon.jpg" alt="Crêpes" width="280" height="200">
+                                  <div class="menu-item-info">
+                                    <h3>Crêpes Salées : O'Neal</h3>
+                                    <p>Fromage, thon, oeuf</p>
+                                    <div class="menu-item-price">6.50 €</div>
+                                  </div>
+                                </div>
+
+                                  <div class="menu-item">
+                                    <img src="crepe merguez.jpg" alt="Crêpes" width="280" height="200">
+                                    <div class="menu-item-info">
+                                      <h3>Crêpes Salées : Pippen</h3>
+                                      <p>Fromage, Merguez</p>
+                                      <div class="menu-item-price">6.50 €</div>
+                                    </div>
+                                  </div>
+
+                                    <div class="menu-item">
+                                      <img src="CREPE VIANDE.jpg" alt="Crêpes" width="280" height="200">
+                                      <div class="menu-item-info">
+                                        <h3>Crêpes Salées : Maravich</h3>
+                                        <p>Fromage, viande hachée, oeuf</p>
+                                        <div class="menu-item-price">6.50 €</div>
+                                      </div>
+                                    </div>
+
+                                      <div class="menu-item">
+                                        <img src="CREPE HACHE.jpg" alt="Crêpes" width="280" height="200">
+                                        <div class="menu-item-info">
+                                          <h3>Crêpes Salées : Olajuwon</h3>
+                                          <p>Fromage, P. de terre, viande hachée, merguez</p>
+                                          <div class="menu-item-price">7.50 €</div>
+                                        </div>
+                                      </div>
+    
+  
+
+
+            <div class="menu-item">
+              <img src="POPO.jpg" alt="Crêpes" width="280" height="200">
+              <div class="menu-item-info">
+                <h3>Crêpes Sucrées : Poppovich</h3>
+                <p>Beurre, sucre</p>
+                <div class="menu-item-price">3.00 €</div>
+              </div>
+            </div>
+
+              <div class="menu-item">
+                <img src="CREPE MIEL.webp" alt="Crêpes" width="280" height="200">
+                <div class="menu-item-info">
+                  <h3>Crêpes Sucrées : Phil Jackson</h3>
+                  <p>Beurre, miel</p>
+                  <div class="menu-item-price">3.00 €</div>
+                </div>
+              </div>
+
+                <div class="menu-item">
+                  <img src="CREPE CONFITURE.webp" alt="Crêpes" width="280" height="200">
+                  <div class="menu-item-info">
+                    <h3>Crêpes Sucrées : Van Gundy</h3>
+                    <p>Confiture</p>
+                    <div class="menu-item-price">3.00 €</div>
+                  </div>
+                </div>
+
+                  <div class="menu-item">
+                    <img src="BANANE.jpg" alt="Crêpes" width="280" height="200">
+                    <div class="menu-item-info">
+                      <h3>Crêpes Sucrées : Pat Riley</h3>
+                      <p>Sucre, Banane</p>
+                      <div class="menu-item-price">4.00 €</div>
+                    </div>
+                  </div>
+
+                    <div class="menu-item">
+                      <img src="NUTELLA.jpg" alt="Crêpes" width="280" height="200">
+                      <div class="menu-item-info">
+                        <h3>Crêpes Sucrées : Don Nelson</h3>
+                        <p>Nutella</p>
+                        <div class="menu-item-price">4.00 €</div>
+                      </div>
+                    </div>
+
+                      <div class="menu-item">
+                        <img src="NUTELLA BANANE.jpg" alt="Crêpes" width="280" height="200">
+                        <div class="menu-item-info">
+                          <h3>Crêpes Sucrées : Chuck Daly</h3>
+                          <p>Nutella, Banane</p>
+                          <div class="menu-item-price">5.00 €</div>
+                        </div>
+                      </div>
+
+                        <div class="menu-item">
+                          <img src="BANANE NUTELLA COCO.jpg" alt="Crêpes" width="280" height="200">
+                          <div class="menu-item-info">
+                            <h3>Crêpes Sucrées : Larry Brown</h3>
+                            <p>Nutella, coco</p>
+                            <div class="menu-item-price">4.50 €</div>
+                          </div>
+                        </div>
+
+                          <div class="menu-item">
+                            <img src="NUTELLA AMENDE.jpg" alt="Crêpes" width="280" height="200">
+                            <div class="menu-item-info">
+                              <h3>Crêpes Sucrées : Jerry Sloan</h3>
+                              <p>Nutella, amende</p>
+                              <div class="menu-item-price">4.50 €</div>
+                            </div>
+                          </div>
+
+                            <div class="menu-item">
+                              <img src="CHOCO BANANE.jpeg" alt="Crêpes" width="280" height="200">
+                              <div class="menu-item-info">
+                                <h3>Crêpe Sucrée : Jerry West</h3>
+    <p>Nutella, banane, coco / amande</p> <!-- Correction de "amende" à "amande" -->
+    <div class="menu-item-price">5.50 €</div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Contact section -->
+
+<section id="contact" class="contact-section">  
+  <h3>Contactez-nous</h3>
+  <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> <strong>Email :</strong> allstarfood75@gmail.com/p>
+      <p><i class="fas fa-phone"></i> <strong>Téléphone :</strong> +33 01 44 84 97 62</p>
+      <p><i class="fas fa-map-marker-alt"></i> <strong><a href="https://www.google.fr/maps/place/78+Rue+Ren%C3%A9+Boulanger,+75010+Paris/@48.8761732,2.3614074,15z/data=!3m1!4b1!4m6!3m5!1s0x47e66e4e4cf3a6cb:0x6f4b60b0877eaf8b!8m2!3d48.876173!4d2.3735654!16s%2Fg%2F11c5wntdvl?entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank">78 Rue René Boulanger, 75010 Paris, France</a></strong></p>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer section -->
+<footer class="footer">
+  <p>&copy; 2024 All Star Paris 10. Tous droits réservés.</p>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/chickenpizza" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/chickenpizza" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com/chickenpizza" target="_blank"><i class="fab fa-twitter"></i></a>
+  </div>
+</footer>
+
+      <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    const categoryButtons = document.querySelectorAll('.category-button');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            const category = this.textContent.toLowerCase();
+
+            menuItems.forEach(item => {
+                const itemName = item.querySelector('h3').textContent.toLowerCase();
+                if (category === 'tous' || 
+                    (category === 'pizzas' && itemName.includes('pizza')) ||
+                    (category === 'burgers' && itemName.includes('burger')) ||
+                    (category === 'crêpes sucrées' && itemName.includes('crêpes sucrées')) ||
+                    (category === 'crêpes salées' && itemName.includes('crêpes salées')) ||
+                    (category === 'boissons' && (itemName.includes('soda') || itemName.includes('boisson'))) ||
+                    (category === 'desserts' && (itemName.includes('tiramisu') || itemName.includes('dessert'))) ||
+                    (category === 'tex mex' && (
+                        itemName.includes('bouchée camembert') || 
+                        itemName.includes('jalapenos') ||
+                        itemName.includes('onion rings') ||  // Inclus ici
+                        itemName.includes('mozzastick')    // Inclus ici
+                    ))) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+
+// Récupérer le bouton
+let scrollTopBtn = document.getElementById("scrollTopBtn");
+
+// Montrer le bouton lorsque l'utilisateur scroll vers le bas de 20px
+window.onscroll = function() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollTopBtn.style.display = "block";
+    } else {
+        scrollTopBtn.style.display = "none";
+    }
+};
+
+// Quand l'utilisateur clique sur le bouton, remonter en haut de la page
+scrollTopBtn.onclick = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+
+
+      </script>
+    </body>
+    </html>

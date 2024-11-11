@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Playfair Display', serif;
+  background-color: #f9f5f0;
+  color: #3a3a3a;
+}
+.header {
+  background-color: #0c0c0c;
+  color: #f4d76e;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  animation: slide-in-down 0.5s ease-out;
+
+}
+.logo-container {
+    display: inline-flex;
+    align-items: center;
+    animation: forwards 1.5s ease-out;
+
+}
+
+.logo-image {
+  width: 150px; /* Taille normale du logo */
+  height: 80px; /* Taille normale du logo */
+  margin-right: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease; /* Ajoute une transition fluide */
+}
+
+.logo-image:hover {
+  transform: scale(1.5); /* Agrandit le logo au survol */
+  filter: brightness(1.2) drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.3)); /* Ajoute un filtre de luminosité et une ombre */
+}
+
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Ajoute une transition fluide */
+}
+
+.logo-text:hover {
+  transform: scale(1.1); /* Agrandit le logo au survol */
+  filter: brightness(1.2) drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.3)); /* Ajoute un filtre de luminosité et une ombre */
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 0;
+}
+.nav a {
+  color: #f9f0f0;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s ease;
+  animation: fadeIn 0.5s ease-in-out;
+    animation-fill-mode: both;
+}
+
+.nav a:nth-child(1) { animation-delay: 0.2s; }
+.nav a:nth-child(2) { animation-delay: 0.4s; }
+.nav a:nth-child(3) { animation-delay: 0.6s; }
+.nav a:nth-child(4) { animation-delay: 0.8s; }
+
+.nav a:hover {
+  color: #ffc107;
+}
+
+.main {
+  max-width: 1200px;
+  margin:  auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #ffffff;
+  animation: zoomIn 1s ease-out;
+
+}
+
+h3 {
+  text-align: center;
+  color: #000000; /* Assurez-vous que le code de couleur est correct */
+  font-size: 24px; /* Vous pouvez ajuster cette valeur pour augmenter la taille */
+  font-weight: bold; /* Ajoutez cette ligne si vous souhaitez rendre le texte plus épais */
+  margin-top: 0px;
+  animation: zoomIn 1s ease-out;
+
+}
+
+h4 {
+  text-align: center;
+  color: #000000; /* Assurez-vous que le code de couleur est correct */
+  font-size: 24px; /* Vous pouvez ajuster cette valeur pour augmenter la taille */
+  font-weight: bold; /* Ajoutez cette ligne si vous souhaitez rendre le texte plus épais */
+  padding-top: 0px;
+  margin-top: 0rem;
+  animation: zoomIn 1s ease-out;
+
+}
+
+h5 {
+  text-align: center;
+  color: #000000; /* Assurez-vous que le code de couleur est correct */
+  font-size: 24px; /* Vous pouvez ajuster cette valeur pour augmenter la taille */
+  font-weight: bold; /* Ajoutez cette ligne si vous souhaitez rendre le texte plus épais */
+  padding-top: 0px;
+  margin-top: 0rem;
+  animation: zoomIn 1s ease-out;
+
+}
+
+h6{
+ text-align: center;
+  color: #000000; /* Assurez-vous que le code de couleur est correct */
+  font-size: 24px; /* Vous pouvez ajuster cette valeur pour augmenter la taille */
+  font-weight: bold; /* Ajoutez cette ligne si vous souhaitez rendre le texte plus épais */
+  padding-top: 6rem;
+  margin-top: 0px;
+  animation: zoomIn 1s ease-out;
+
+}
+.menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.menu-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.menu-header h1 {
+  color: #000000;
+  font-size: 3em;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-top: 4rem;
+}
+.menu-categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.category-button {
+  background-color: #3c3c3c; /* Couleur de fond initiale */
+  border: none;
+  color: #ffffff;
+  padding: 12px 24px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Ajoute une transition fluide pour la couleur de fond */
+  font-weight: 600;
+  border-radius: 25px;
+  text-transform: capitalize;
+}
+
+.category-button:hover {
+  background-color: #ffc107; /* Couleur jaune au survol */
+}
+
+/* Animation de réduction au clic */
+.category-button:active {
+  transform: scale(0.95); /* Réduit légèrement la taille */
+}
+
+/* Animation d'ajout de l'état actif avec une bordure et une couleur différente */
+.category-button.active {
+  background-color: #ffc107; /* Couleur différente pour le bouton actif */
+  color: #000000; /* Texte noir pour le bouton actif */
+  border: 2px solid #000000; /* Bordure noire pour le bouton actif */
+}
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+.menu-item {
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.menu-item:hover {
+  transform: translateY(-5px);
+}CO
+.menu-item img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+.menu-item-info {
+  padding: 10px;
+}
+.menu-item-info h3 {
+  margin: 0 0 10px 0;
+  color: #000000;
+  font-weight: 700;
+  font-size: 1.3em;
+}
+.menu-item-info p {
+  margin: 0;
+  color: #333333;
+  font-size: 0.9em;
+  line-height: 1;
+}
+.menu-item-price {
+  font-weight: 700;
+  color: #000000;
+  font-size: 1.1em;
+  margin-top: 15px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-30px); }
+  60% { transform: translateY(-15px); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.marketplaces-section {
+  text-align: center;
+  margin-top: 0rem;
+}
+
+.marketplace-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 0rem;
+}
+
+.marketplace-link {
+  display: inline-block;
+}
+
+.marketplace-logo {
+  width: 100px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.animated-logo {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.marketplace-logo:hover {
+  animation: none;
+  transform: scale(1.2);
+}
+
+.footer {
+  background-color: #0c0c0c;
+  color: #f9f5f0;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 60px;
+  animation: slideInUp 1s ease-out;
+
+}
+
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: #f9f5f0;
+  font-size: 1.5em;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffc107;
+}
+
+/* Animation d'apparition lorsque l'élément entre dans le champ de vision */
+@keyframes appear {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation de disparition lorsque l'élément sort du champ de vision */
+@keyframes disappear {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(30px); }
+}
+
+/* Classe d'élément qui doit apparaître dans le champ de vision */
+.element-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Classe pour l'élément visible */
+.element-animate.visible {
+  animation: appear 0.6s forwards;
+}
+
+/* Classe pour l'élément caché */
+.element-animate.hidden {
+  animation: disappear 0.6s forwards;
+}
+
+.contact-section {
+  background-color: #f9f5f0; /* Couleur de fond claire pour la section */
+  padding: 40px 20px;       /* Espacement interne */
+  text-align: center;       /* Alignement du texte au centre */
+}
+
+.contact-section h3 {
+  font-size: 2.5em;         /* Taille du texte pour le titre */
+  color: #000000;           /* Couleur du texte pour le titre */
+  margin-bottom: 20px;      /* Espacement sous le titre */
+}
+
+.contact-info {
+  font-size: 1.em;         /* Taille du texte pour les informations */
+  color: #333333;           /* Couleur du texte */
+}
+
+.contact-info p {
+  margin: 10px 0;           /* Espacement entre les lignes */
+}
+
+.contact-info strong {
+  font-weight: bold;        /* Mise en gras des labels */
+}
+
+/* Ajout des animations slide pour les sections */
+@keyframes slideInUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideOutDown {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(100%); opacity: 0; }
+}
+
+.slide-in {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in.visible {
+  animation: slideInUp 0.6s forwards;
+}
+
+.slide-in.hidden {
+  animation: slideOutDown 0.6s forwards;
+}
+
+/* Styles du bouton flottant */
+#scrollTopBtn {
+  display: none; /* Caché par défaut */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #0c0c0c;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+#scrollTopBtn:hover {
+  background-color: #0c0c0c;
+}

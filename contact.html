@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Pizza Asnières-sur-seine| Contact |Ouvert Jusque 1H</title>
+    <meta name="description" content="Pizza de nuit comme de jour, nous sommes ouverts tous les jours de 11.00 à 01.00. Situé au centre d'anières. Ouvert de nuit jusqu'à 1H. Livraison rapide. Produits de qualités.">
+    <link rel="stylesheet" href="style3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+       <link rel="icon" type="image/png" href="allstarfood logo.png">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="allstarfood logo.png" alt="Logo du restaurant" class="logo-image">
+        </div> 
+        <nav class="nav">
+            <a href="index.html">Accueil</a>
+            <a href="services.html">Menu</a>
+            <a href="apropos.html">À propos</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <button id="scrollTopBtn" title="Remonter en haut">↑</button>
+  </head>
+
+    <main class="main">
+        <div class="page-title">
+            <h1>Contactez-nous</h1>
+        </div>
+      
+        <section class="contact-section">
+            <div class="contact-info">
+                <h2>Nos coordonnées</h2>
+                <p><strong>Adresse :</strong>  78 Rue René Boulanger, 75010 Paris, France</p>
+                <p><strong>Téléphone :</strong> <a href="tel:++330144849762">+33 01 44 84 97 62</a></p>
+                <p><strong>Email :</strong> <a href="mailto:allstarfood75@gmail.com">allstarfood75@gmail.com</a></p>
+                <p><strong>Parking :</strong> Stationnement gratuit disponible à proximité</p>
+                <p><strong>Accessibilité :</strong> Notre restaurant est accessible aux personnes à mobilité réduite</p>
+                <p><strong>Ambiance :</strong> Décontractée et familiale, parfaite pour tous types d'occasions</p>
+                <p><strong>Spécialités :</strong> Pizzas artisanales, crêpes de qualités, et une sélection de plats du monde entier authentiques</p>
+            </div>
+            
+            <div class="map-container">
+                <h2>Nous trouver</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2620.7800367825544!2d2.3614074!3d48.876173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e4e4cf3a6cb%3A0x6f4b60b0877eaf8b!2s78%20Rue%20Ren%C3%A9%20Boulanger%2C%2075010%20Paris%2C%20France!5e0!3m2!1sen!2sus!4v1694184534874!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+
+            <div class="horaires-frame">
+                <h2>Nos Horaires</h2>
+                <div class="horaires-container">
+                    <div class="jour">
+                        <span class="jour-nom">Lundi</span>
+                        <span class="heures">11:00 – 01:00</span>
+                    </div>
+                    <div class="jour">
+                        <span class="jour-nom">Mardi</span>
+                        <span class="heures">11:00 – 01:00</span>
+                    </div>
+                    <div class="jour">
+                        <span class="jour-nom">Mercredi</span>
+                        <span class="heures">11:00 – 01:00</span>
+                    </div>
+                    <div class="jour">
+                        <span class="jour-nom">Jeudi</span>
+                        <span class="heures">11:00 – 01:00</span>
+                    </div>
+                    <div class="jour">
+                        <span class="jour-nom">Vendredi</span>
+                        <span class="heures">11:00 – 01:00</span>
+                    </div>
+                    <div class="jour">
+                        <span class="jour-nom">Samedi</span>
+                        <span class="heures">11:00 – 01:00</span>
+                    </div>
+                    <div class="jour">
+                        <span class="jour-nom">Dimanche</span>
+                        <span class="heures">11:00 – 01:00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</section>
+<div class="payment-methods">
+    <img src="image-removebg-preview (10).png" alt="Moyens de Paiement">
+</div>
+</section>
+</section>
+
+    <footer class="footer">
+        <p>&copy; 2024 All Star Paris 10. Tous droits réservés.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/allstarfood" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/allstarfood" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/allstarfood" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+
+    <script>
+        function setActiveDay() {
+            const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+            const today = new Date().getDay();
+            const activeDay = document.querySelectorAll('.jour')[today];
+            activeDay.classList.add('active');
+        }
+        setActiveDay();
+        // Récupérer le bouton
+let scrollTopBtn = document.getElementById("scrollTopBtn");
+
+// Montrer le bouton lorsque l'utilisateur scroll vers le bas de 20px
+window.onscroll = function() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollTopBtn.style.display = "block";
+    } else {
+        scrollTopBtn.style.display = "none";
+    }
+};
+
+// Quand l'utilisateur clique sur le bouton, remonter en haut de la page
+scrollTopBtn.onclick = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+    </script>
+</body>
+</html>
